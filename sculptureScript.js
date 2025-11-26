@@ -1,21 +1,14 @@
+const sculptureList = require("./data.js");
 
-const sculptureList = require('./data.js');
+const sculptureListLengths = {};
 
-
-const sculptureListLengths = [];
-
-
-for (const sculpture of sculptureList) {
+sculptureList.forEach((sculpture) => {
   const lengths = {};
 
   for (const key in sculpture) {
     lengths[key] = sculpture[key].length;
   }
 
-  sculptureListLengths.push(lengths);
-}
-
+  sculptureListLengths[sculpture.name] = lengths;
+});
 console.log(sculptureListLengths);
-
-
-module.exports = sculptureListLengths;
